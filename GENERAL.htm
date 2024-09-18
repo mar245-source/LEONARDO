@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Email</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://png.pngtree.com/background/20230616/original/pngtree-faceted-abstract-background-in-3d-with-shimmering-iridescent-metallic-texture-of-picture-image_3653595.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: cyan;
+            display: flex;
+            justify-content: center;
+            /* Horizontally center */
+            align-items: center;
+            min-height: 100vh;
+            /* Ensure body takes up full viewport height */
+        }
+
+        .container {
+            width: 75%;
+            margin: 50px auto;
+            background: rgba(105, 205, 255, 0.2);
+            border-radius: 18px;
+            box-shadow: 0 2px 4px rgba(1, 1, 1, 1);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: cyan;
+            /* Corrected color value */
+            padding: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            text-align: center;
+            /* Center contents of form-group */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: rgba(205, 255, 255, 0.9);
+            /* Adjusted color for readability */
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid black;
+            box-shadow: 0 2px 4px rgba(9, 9, 9, 0.1);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="button"] {
+            background-color: black;
+            color: cyan;
+            /* Adjusted text color for visibility */
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            background: url('https://pngimg.com/d/buttons_PNG34.png') no-repeat center center;
+            background-size: contain;
+            /* Ensures the image fits within the button */
+            width: 280px;
+            /* Set the width of the button */
+            height: 50px;
+            /* Set the height of the button */
+        }
+
+        .form-group input[type="button"]:hover {
+            background: url('https://pngimg.com/d/buttons_PNG34.png') no-repeat center center;
+            background-size: contain;
+            /* Consistent background size on hover */
+        }
+
+        .confirmation {
+            border: 1px solid gray;
+            padding: 18px;
+            background: rgba(1, 1, 1, 0.7);
+            margin-top: 12px;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        .confirmation h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .confirmation pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>General Email</h1>
+        <div class="form-group">
+            <label for="guestName">Name:</label>
+            <input type="text" id="guestName" name="guestName">
+        </div>
+        <div class="form-group">
+            <label for="emailTypeSelector">Select Email Type:</label>
+            <select id="emailTypeSelector">
+          <option value="introductionRegular">Introduction Regular</option>
+          <option value="travelAgencyConfirmation">Travel Agency Confirmation</option>
+          <option value="travelAgencyBillingInstructions">Travel Agency Billing Instructions</option>
+          <option value="toGDS">TO GDS</option>
+          <option value="availabilityCheck">Availability Check</option>
+          <option value="stayOnTheSameRoom">Stay on the Same Room</option>
+          <option value="reachOutToThirdParty">Reach Out to Third Party</option>
+          <option value="unabletolocate">Unable to locate</option>
+          <option value="incidentalFees">Incidental Fees</option>
+          <option value="luggage">Luggage</option>
+          <option value="adjoiningRooms">Adjoining Rooms</option>
+          <option value="specialRequests">Special Requests</option>
+          <option value="lostItems">Lost Items</option>
+          <option value="paymentTerms">Payment Terms</option>
+        </select>
+        </div>
+        <div class="form-group">
+            <input type="button" value="Generate Email" onclick="generateEmail()">
+        </div>
+        <div class="confirmation" id="confirmationMessage" style="display: none;">
+            <pre id="emailContent"></pre>
+        </div>
+    </div>
+    <script>
+        function generateEmail() {
+            const guestName = document.getElementById('guestName').value;
+            const emailType = document.getElementById('emailTypeSelector').value;
+            let emailContent = '';
+            if (emailType === 'introductionRegular') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.`;
+            } else if (emailType === 'travelAgencyConfirmation') {
+                emailContent = `Hi ${guestName},\n\nGood day!\n\nThank you for reaching out to us. We hope this email finds you well.\n\nWe are pleased to confirm that the reservation is in our system and has been processed accurately. We cross-referenced the details, and everything matches. The hotel confirmation number is -.`;
+            } else if (emailType === 'travelAgencyBillingInstructions') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for reaching out to us. We hope this email finds you well.\n\nThis has been received and acknowledged. We will update the billing instructions for the reservation accordingly.`;
+            } else if (emailType === 'toGDS') {
+                emailContent = `Hello Team,\n\nGood Day!\n\nHope you're well.\n\nWe have received billing instructions. Kindly check the reservation and update if necessary.`;
+            } else if (emailType === 'availabilityCheck') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nFor us to check the exact availability, could you please supply us with all the details below:\n\n[Please correct if necessary]\nLeonardo Hotel \nAddress\nDate of Arrival: \nNumber of Nights: \nDate of Departure: \nNumber of Rooms: \nNumber of Guests per Room:`;
+            } else if (emailType === 'stayOnTheSameRoom') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nWe added a note to both reservations to notify hotel reception of the request to stay in the same room; however, please be aware that while we will do our best to accommodate the request, it is not guaranteed due to availability.`;
+            } else if (emailType === 'reachOutToThirdParty') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nHowever, please be informed that the reservation was made via a third-party travel agency. Consequently, we are unable to directly process any changes. Any modifications to the reservation must be requested through the travel agent. Please reach out to them directly for assistance with adjustments.`;
+            } else if (emailType === 'incidentalFees') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nAccommodation charges are fully covered for the guest. However, please note that incidental fees may apply upon check-out. These fees may include charges for room service, minibar usage, telephone calls, parking, damages, or any additional amenities used during the stay. These details are typically outlined in the reservation confirmation or can be clarified by contacting our reception directly. Credit card payment is generally recommended for such charges.`;
+            } else if (emailType === 'luggage') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nYou are welcome to leave your luggage in our secure storage at reception before check-in. Our friendly receptionists will be happy to assist you upon arrival. We understand the importance of ensuring your belongings are safe and secure, allowing you to start enjoying your stay without any worries.`;
+            } else if (emailType === 'adjoiningRooms') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nWe added a note on your reservation to notify hotel reception that you want to have adjoining rooms. Please note that all requests will be passed to the hotel but cannot be guaranteed. Availability will be subject to demand on the day of arrival.`;
+            } else if (emailType === 'specialRequests') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nFor any special requests, please contact the hotel directly at . These requests are subject to availability and at the discretion of the hotel. Our team will do their best to accommodate your needs and ensure a comfortable stay.`;
+            } else if (emailType === 'lostItems') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach out to us. We hope this email finds you well.\n\nFor lost property inquiries, please contact the hotel directly at - or email us at -. We will assist you in locating any items left behind and will keep you updated on any found items.`;
+            } else if (emailType === 'paymentTerms') {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nPlease be informed of the payment terms: Full payment is required at check-in, and accepted payment methods include major credit cards and debit cards. If payment is made through a third party, additional verification may be required.`;
+            } else if (emailType === "unabletolocate") {
+                emailContent = `Hi ${guestName},\n\nGood Day!\n\nThank you for taking the time to reach us. We hope this email finds you well.\n\nI attempted to locate your reservation using your first and last name but was unable to find any matching results. Could you please provide either the guest's first and last name associated with the reservation or the confirmation number?.`;
+            }
+            // Display email content  
+            document.getElementById('emailContent').innerText = emailContent;
+            document.getElementById('confirmationMessage').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

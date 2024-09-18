@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Requests</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/f356def9-ed55-4ad5-afbc-2a6132402022/3f40e21a-610b-4ab5-b8cc-504ff6a6f222.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-shadow: rgba 0 1px (1,1,1,0.5);
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 1px 15px rgba(1, 1, 1, 1);
+            padding: 30px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            background: transparent;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea,
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 8px rgba(1, 1, 1, 0.8);
+            border-radius: 8px;
+            background: rgba(1, 1, 1, 0.3);
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background: url('https://pngimg.com/d/buttons_PNG34.png') no-repeat center center;
+            background-size: contain;
+            /* Ensures the entire image fits within the button */
+            width: 150px;
+            /* Set a fixed width for the button */
+            height: 50px;
+            /* Set a fixed height for the button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 10px auto;
+            /* Add margin for spacing and centering */
+            display: block;
+            /* Ensure the button is treated as a block element, making 'margin: auto' work */
+            text-align: center;
+            /* Centers the text horizontally */
+            line-height: 50px;
+            /* Vertically center text */
+        }
+
+        input[type="submit"]:hover {
+            background: url('https://pngimg.com/d/buttons_PNG34.png') no-repeat center center;
+            background-size: cover;
+            /* Ensures the image scales when hovering */
+        }
+
+        .result-container {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: cyan;
+            box-shadow: 0 2px 4px rgba(1, 1, 1, 1);
+        }
+
+        .result-container p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hotel Requests</h1>
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="hotel">Select Hotel:</label>
+                <select id="hotel" name="hotel">
+<option value="ABI">ABI</option>
+<option value="LAS">LAS</option>
+<option value="TAP">TAP</option>
+<option value="BFI">BFI</option>
+<option value="BHI">BHI</option>
+<option value="BDI">BDI</option>
+<option value="BRI">BRI</option>
+<option value="LGB">LGB</option>
+<option value="TBR">TBR</option>
+<option value="LBG">LBG</option>
+<option value="TCA">TCA</option>
+<option value="TCH">TCH</option>
+<option value="LCG">LCG</option>
+<option value="CKI">CKI</option>
+<option value="DBI">DBI</option>
+<option value="CCI">CCI</option>
+<option value="PAI">PAI</option>
+<option value="NDP">NDP</option>
+<option value="TEM">TEM</option>
+<option value="LET">LET</option>
+<option value="LEC">LEC</option>
+<option value="LER">LER</option>
+<option value="EDI">EDI</option>
+<option value="EXI">EXI</option>
+<option value="GAI">GAI</option>
+<option value="GLI">GLI</option>
+<option value="LGP">LGP</option>
+<option value="HHI">HHI</option>
+<option value="TIN">TIN</option>
+<option value="LEI">LEI</option>
+<option value="LVI">LVI</option>
+<option value="CRI">CRI</option>
+<option value="WTI">WTI</option>
+<option value="LHW">LHW</option>
+<option value="LLT">LLT</option>
+<option value="LLS">LLS</option>
+<option value="LLC">LLC</option>
+<option value="LLP">LLP</option>
+<option value="NLH">NLH</option>
+<option value="MAI">MAI</option>
+<option value="LMM">LMM</option>
+<option value="LMA">LMA</option>
+<option value="LMG">LMG</option>
+<option value="TMI">TMI</option>
+<option value="MKI">MKI</option>
+<option value="NWI">NWI</option>
+<option value="GTI">GTI</option>
+<option value="NTI">NTI</option>
+<option value="HOX">HOX</option>
+<option value="LPH">LPH</option>
+<option value="PLI">PLI</option>
+<option value="SHI">SHI</option>
+<option value="SNI">SNI</option>
+<option value="LSG">LSG</option>
+<option value="SWI">SWI</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmationNumber">Confirmation Number:</label>
+                <input type="text" id="confirmationNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName">
+            </div>
+
+            <div class="form-group">
+                <label for="arrival">Date of Arrival:</label>
+                <input type="text" id="arrival">
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Company Name on Invoice:</label>
+                <input type="text" id="companyName">
+            </div>
+
+            <div class="form-group">
+                <label for="invoiceAddress">Invoice Address:</label>
+                <input type="text" id="invoiceAddress">
+            </div>
+
+            <div class="form-group">
+                <label for="recipientEmail">Recipient Email for Invoice:</label>
+                <input type="text" id="recipientEmail">
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+
+
+        <div class="result-container" id="resultContainer">
+            <p id="resultMessage"></p>
+
+            <script>
+                document.getElementById('reservationForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    // Get form values
+                    var hotel = document.getElementById('hotel').value;
+                    var confirmationNumber = document.getElementById('confirmationNumber').value;
+                    var firstName = document.getElementById('firstName').value;
+                    var arrival = document.getElementById('arrival').value;
+                    var companyName = document.getElementById('companyName').value;
+                    var invoiceAddress = document.getElementById('invoiceAddress').value;
+                    var recipientEmail = document.getElementById('recipientEmail').value;
+
+                    // Create result message
+                    var resultMessage = `
+            <p>Subject Line: Invoice Request</p><br>
+            <p>Dear Reception Team,</p><br>
+            <p>We have received an Invoice Request from one of our guests. Please see important information below and forward the invoice to the below email address as soon as possible:</p>
+            <ul>
+                <li>Reservation Number: ${confirmationNumber}</li>
+                <li>Guest Name: ${firstName}</li>
+                <li>Arrival Date: ${arrival}</li>
+                <li>Company Name on Invoice: ${companyName}</li>
+                <li>Address on Invoice: ${invoiceAddress}</li>
+            </ul>
+            <p>Please send this invoice to: ${recipientEmail}</p><br>
+            <p>Thank you for your help.</p>`;
+
+                    // Display the result
+                    document.getElementById('resultMessage').innerHTML = resultMessage;
+                    document.getElementById('resultContainer').style.display = 'block';
+                });
+            </script>
+</body>
+
+</html>

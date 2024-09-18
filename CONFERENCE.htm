@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFERENCE</title>
+    <style>
+      body {
+        font-family: 'Calibri', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('https://smashingtips.com/wp-content/uploads/2012/09/3D-Fractal-HD-Wallpaper.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: black;
+        animation: fadeIn 2s ease-in;
+      }
+
+      /* Fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0.3;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 5px solid #d9534f;
+        background: transparent;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.8);
+        box-sizing: border-box;
+        animation: slideIn 2s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-90px);
+          opacity: 0.6;
+        }
+
+        to {
+          transform: translateY(100);
+          opacity: 1;
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: transparent;
+        border-radius: 8px;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-shadow: 0.5px 0.5px 0 gray,
+          /* Blue shadow for bottom-right */
+          -1px -1px 0 white,
+          /* Cyan shadow for top-left */
+          1px -1px 0 black,
+          /* Additional cyan shadows for enhanced bevel */
+          -1px 1px 0 brown;
+
+        /* Blue shadow for bottom-left 
+        }
+
+        /* Table hover effect */
+        table:hover {
+          transform: scale(1.03);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        th,
+        td {
+          border: 1px solid #d9534f;
+          /* Red border */
+          padding: 10px;
+          text-align: center;
+          transition: background-color 0.3s ease;
+          /* Smooth transition */
+        }
+
+        th {
+          background: linear-gradient(180deg, black, gray);
+          /* Red gradient */
+          color: orange;
+          font-weight: bold;
+          font-family: 'Arial', sans-serif;
+          animation: thPulse 2s infinite;
+          /* Pulse animation for headers */
+        }
+
+        /* Pulse animation for headers */
+        @keyframes thPulse {
+
+          0%,
+          100% {
+            transform: scale(0.9);
+            background-color: #d9534f;
+          }
+
+          50% {
+            transform: scale(1.1);
+            background-color: #c82333;
+          }
+        }
+
+        tr:nth-child(even) {
+          background: rgba(255, 255, 255, 0.1);
+          /* Light red tint */
+        }
+
+        tr:hover {
+          transform: scale(1.03);
+          box-shadow: 0 8px 16px rgba(240, 240, 240, 0.8);
+        }
+
+        input[type="number"] {
+          width: 60px;
+          text-align: center;
+          border: 1px solid #d9534f;
+          /* Red border */
+          border-radius: 8px;
+          padding: 10px;
+          box-sizing: border-box;
+          font-size: 16px;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Input focus effect */
+        input[type="number"]:focus {
+          border-color: solid black;
+          /* Darker red */
+          outline: none;
+          box-shadow: 0 0 8px rgba(0, 255, 235, 251, 0.5);
+          background-color: transparent;
+          /* Light red background on focus */
+        }
+
+        .header {
+          text-align: center;
+          margin-bottom: 0px;
+          animation: headerBounce 5s infinite;
+        }
+
+        /* Header bounce animation */
+        @keyframes headerBounce {
+
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(0);
+          }
+
+          40% {
+            transform: translateY(-10px);
+          }
+
+          60% {
+            transform: translateY(-5px);
+          }
+        }
+
+        .header h1 {
+          margin: 10;
+          color: #d9534f;
+          /* Red text color */
+          font-size: 2.5em;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          transition: color 0.3s ease;
+        }
+
+        /* Change color on hover */
+        .header:hover h1 {
+          color: #c82333;
+          /* Darker red */
+        }
+
+        .total-container {
+          margin-top: 30px;
+          text-align: center;
+          animation: fadeInUp 2s ease-in-out;
+        }
+
+        /* Fade-in-up animation */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+
+          to {
+            opacity: 0.1;
+            transform: translateY(0);
+          }
+        }
+
+        .total-label {
+          font-weight: bold;
+          margin-right: 15px;
+          font-size: 1.2em;
+          transition: transform 0.3s ease;
+        }
+
+        /* Rotate total label on hover */
+        .total-label:hover {
+          transform: rotate(15deg);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Conference Prod</h1>
+      </header>
+    </div>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Hotel</th>
+            <th>Code</th>
+            <th>Usernames</th>
+            <th>Password</th>
+            <th>PROD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Birmingham</td>
+            <td>BHI</td>
+            <td>Harvyheerbirmingham</td>
+            <td>Conference2017</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Brighton</td>
+            <td>BRI</td>
+            <td>Sarah.hannon</td>
+            <td>Conference2022</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Leeds</td>
+            <td>LEI</td>
+            <td>HarvyHeer</td>
+            <td>Seaside23</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Leonardo Hotel Royal Glasgow</td>
+            <td>GLI</td>
+            <td>LisaWatson1</td>
+            <td>Glenmore1</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Leonardo Inn Glasgow West End</td>
+            <td>LGP</td>
+            <td>WatsonLisa</td>
+            <td>Glenmore2!</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Liverpool</td>
+            <td>LVI</td>
+            <td>Liverpoolconference</td>
+            <td>Liverpool53</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Manchester</td>
+            <td>MAI</td>
+            <td>Conferencebookings</td>
+            <td>Conference2021</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Manchester Piccadilly</td>
+            <td>LMA</td>
+            <td>LMA_Regional</td>
+            <td>LMA_Manchester2023</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Sheffield</td>
+            <td>SHI</td>
+            <td>ZoeSharman</td>
+            <td>Conference2021</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>The Midland Manchester</td>
+            <td>LMM</td>
+            <td>Midlandreservations</td>
+            <td>Midland02</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Leonardo Hotel Nottingham</td>
+            <td>NTI</td>
+            <td>leonardo_nottingham</td>
+            <td>mcy1uH2p7LEN</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Bzon</td>
+            <td>LVI</td>
+            <td>leonardo_liverpool</td>
+            <td>Ms4ah0Lb4FFT</td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td>Leonardo Hotel East Midlands Airport</td>
+            <td>TEM</td>
+            <td>Scania</td>
+            <td></td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Email</td>
+            <td></td>
+            <td>
+              <input type="number" value="1" min="0" onchange="updateTotal()">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total-container">
+        <span class="total-label">Total:</span>
+        <input type="number" id="total" value="0" min="0" readonly>
+      </div>
+    </div>
+    <script>
+      function updateTotal() {
+        let total = 0;
+        const inputs = document.querySelectorAll('tbody input[type="number"]');
+        inputs.forEach(input => {
+          total += parseInt(input.value) || 0;
+        });
+        document.getElementById('total').value = total;
+      }
+      // Initial calculation 
+      updateTotal();
+    </script>
+  </body>
+</html>
